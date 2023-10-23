@@ -1,5 +1,5 @@
 # Bank Customer Segregation: Project Overview 
-* Created a tool that segregates customers of one of India's banks in order to help organizations identify and understand each segment of their customers
+* Segregated customers of one of India's banks in order to help similar organizations identify and understand each segment of their customers
 * Cleaned the dataset and selected only relevant customer features
 * Optimized, compared and utilized KMeans Clustering, Hierarchical Clustering, and DBSCAN models using model performance metrics and numerous visualizations in order to obtain the best model 
 * Conducted detailed data analysis for each segment of customers
@@ -32,7 +32,7 @@ Many changes have been made to the original dataset in order to prepare it for t
 *	Dropped duplicate rows, ensuring that each row represents a single customer
 
   ## Exploratory Data Analysis
-The mean, minimum, 25%, medium, 75%, and maximum for numeric features were examined. The following histograms, scatter plots and barplots for different features were created and examined. A bubble map displaying the places with the most customers was created.
+The mean, minimum, 25%, medium, 75%, and maximum for numeric features were examined. The following histograms, scatter plots and bar plots for different features were created and examined. A bubble map displaying the places with the most customers was created.
 
 ![alt text](https://github.com/AdmirPapic/bank_customers/blob/master/images/base_age_hist.png "Age Distribution")
 
@@ -42,5 +42,39 @@ The mean, minimum, 25%, medium, 75%, and maximum for numeric features were exami
 
 ![alt text](https://github.com/AdmirPapic/bank_customers/blob/master/images/india_bubble_map.png "Customer Locations")
 
+## Model Building
+Three different types of models were built and their performance was compared.
+Feature distributions for each customer segment were examined.
 
+* **K Means Clustering** – The optimal number of clusters was determined using the elbow method and it was concluded to be K = 3, as inertia drops off more slowly after that point.
+
+![alt text](https://github.com/AdmirPapic/bank_customers/blob/master/images/inertia.png "Inertia vs K")
+
+While the first two clusters show a similiar proportion between males and females, the third and the smallest one (Class 2) was dominated by males.
+
+![alt text](https://github.com/AdmirPapic/bank_customers/blob/master/images/kmeans_gender.png "KMeans Gender Distribution")
+
+The Account Balance vs Age scatter plot shows a clearer distinction between the three clusters.
+
+![alt text](https://github.com/AdmirPapic/bank_customers/blob/master/images/kmeans_scatter.png "KMeans Clusters")
+
+* **DBSCAN** – Multiple DBSCAN models with different epsilon (maximum distance between neighbors) hyperparameters were trained. However, only one of them organized clusters in a way in which each cluster would contain more than 10 members.
+
+![alt text](https://github.com/AdmirPapic/bank_customers/blob/master/images/dbscan_scatter.png "DBSCAN Clusters")
+
+* **Hierarchical Clustering** – A Hierarchical Agglomerative Clustering model was trained for three clusters and ward linkage. The Hierarchical Clustering Dendogram was plotted.
+
+![alt text](![alt text](https://github.com/AdmirPapic/bank_customers/blob/master/images/dbscan_scatter.png "Dendogram")
+
+The following scatter plot and bar plot show feature distributions for the three clusters.
+
+![alt text](![alt text](https://github.com/AdmirPapic/bank_customers/blob/master/images/hier_scatter.png "Hierarchical Clusters")
+
+![alt text](![alt text](https://github.com/AdmirPapic/bank_customers/blob/master/images/hier_gender.png "Hierarchical Gender Distribution")
+
+## Model performance
+While KMeans Clustering and Hierarchical Clustering result in similar clusters, DBSCAN falls short of recognizing the middle-aged, wealthy, and mostly male group as a cluster, and instead labels it simply as noise. This was to be expected, since DBSCAN usually performs poorly when there are huge differences between the densities of the clusters. 
+*	**KMeans Clustering** provides the clearest separations between the three clusters and much interpretability.
+*	**DBSCAN** does not recognize clusters which have a much lower density. The algorithm also demanded downsampling of the dataset due to memory shortages.
+*	**Hierarchical Clustering** provides high interpretability (due to the dendogram). However, the vast majority of customers is segregated into a single cluster, the two largest clusters are not clearly separated, and the algorithm also demanded downsampling due to computational issues.
 
