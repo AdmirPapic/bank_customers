@@ -32,4 +32,6 @@ Many changes have been made to the original dataset in order to prepare it for t
 *	Dropped duplicate rows, ensuring that each row represents a single customer
 
   ## Exploratory Data Analysis
-The mean, minimum, 25%, medium, 75%, and maximum for numeric features were examined. Histograms, scatter plots and barplots for a number of features were examined.
+The mean, minimum, 25%, medium, 75%, and maximum for numeric features were examined. The following histograms, scatter plots and barplots for different features were created and examined.
+
+
