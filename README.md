@@ -1,7 +1,7 @@
 # Bank Customer Segregation: Project Overview 
 * Created a tool that segregates customers of one of India's banks in order to help organizations identify and understand each segment of their customers
 * Cleaned the dataset and selected only relevant customer features
-* Optimized, compared and utilized KMeans Clustering, Hierarchical clustering, and DBSCAN models using model performance metrics and numerous visualizations in order to obtain the best model 
+* Optimized, compared and utilized KMeans Clustering, Hierarchical Clustering, and DBSCAN models using model performance metrics and numerous visualizations in order to obtain the best model 
 * Conducted detailed data analysis for each segment of customers
 
 ## Resources 
@@ -32,6 +32,15 @@ Many changes have been made to the original dataset in order to prepare it for t
 *	Dropped duplicate rows, ensuring that each row represents a single customer
 
   ## Exploratory Data Analysis
-The mean, minimum, 25%, medium, 75%, and maximum for numeric features were examined. The following histograms, scatter plots and barplots for different features were created and examined.
+The mean, minimum, 25%, medium, 75%, and maximum for numeric features were examined. The following histograms, scatter plots and barplots for different features were created and examined. A bubble map displaying the places with the most customers was created.
+
+![alt text](https://github.com/AdmirPapic/bank_customers/blob/master/images/base_age_hist.png "Age Distribution")
+
+![alt text](https://github.com/AdmirPapic/bank_customers/blob/master/images/base_gender_bar.png "Gender Distribution")
+
+![alt text](https://github.com/AdmirPapic/bank_customers/blob/master/images/base_scatter.png "Account Balance vs Age scatter plot")
+
+![alt text](https://github.com/AdmirPapic/bank_customers/blob/master/images/india_bubble_map.png "Customer Locations")
+
 
 
