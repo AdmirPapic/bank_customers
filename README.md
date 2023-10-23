@@ -32,7 +32,7 @@ Many changes have been made to the original dataset in order to prepare it for t
 *	Dropped duplicate rows, ensuring that each row represents a single customer
 
   ## Exploratory Data Analysis
-The mean, minimum, 25%, medium, 75%, and maximum for numeric features were examined. The following histograms, scatter plots and bar plots for different features were created and examined. A bubble map displaying the places with the most customers was created.
+The mean, minimum, 25%, medium, 75%, and maximum for numeric features were examined. The following histograms, scatter plots and bar plots for different features were created and examined. A bubble map displaying the places with the most customers was created. The visualizations clearly show distributions for each of the relevant customer features.
 
 ![alt text](https://github.com/AdmirPapic/bank_customers/blob/master/images/base_age_hist.png "Age Distribution")
 
@@ -58,19 +58,19 @@ The Account Balance vs Age scatter plot shows a clearer distinction between the 
 
 ![alt text](https://github.com/AdmirPapic/bank_customers/blob/master/images/kmeans_scatter.png "KMeans Clusters")
 
-* **DBSCAN** – Multiple DBSCAN models with different epsilon (maximum distance between neighbors) hyperparameters were trained. However, only one of them organized clusters in a way in which each cluster would contain more than 10 members.
+* **DBSCAN** – Multiple DBSCAN models with different epsilon (maximum distance between neighbors) hyperparameters were trained. However, only one of them organized clusters in a way in which each cluster would contain more than 10 members, resulting in the following scatter plot for the two clusters and customers which are labeled as noise.
 
 ![alt text](https://github.com/AdmirPapic/bank_customers/blob/master/images/dbscan_scatter.png "DBSCAN Clusters")
 
-* **Hierarchical Clustering** – A Hierarchical Agglomerative Clustering model was trained for three clusters and ward linkage. The Hierarchical Clustering Dendogram was plotted.
+* **Hierarchical Clustering** – A Hierarchical Agglomerative Clustering model was trained for three clusters with ward linkage. The Hierarchical Clustering Dendogram was plotted.
 
-![alt text](![alt text](https://github.com/AdmirPapic/bank_customers/blob/master/images/dbscan_scatter.png "Dendogram")
+![alt text](https://github.com/AdmirPapic/bank_customers/blob/master/images/hier_dendo.png "Dendogram")
 
 The following scatter plot and bar plot show feature distributions for the three clusters.
 
-![alt text](![alt text](https://github.com/AdmirPapic/bank_customers/blob/master/images/hier_scatter.png "Hierarchical Clusters")
+![alt text](https://github.com/AdmirPapic/bank_customers/blob/master/images/hier_scatter.png "Hierarchical Clusters")
 
-![alt text](![alt text](https://github.com/AdmirPapic/bank_customers/blob/master/images/hier_gender.png "Hierarchical Gender Distribution")
+![alt text](https://github.com/AdmirPapic/bank_customers/blob/master/images/hier_gender.png "Hierarchical Gender Distribution")
 
 ## Model performance
 While KMeans Clustering and Hierarchical Clustering result in similar clusters, DBSCAN falls short of recognizing the middle-aged, wealthy, and mostly male group as a cluster, and instead labels it simply as noise. This was to be expected, since DBSCAN usually performs poorly when there are huge differences between the densities of the clusters. 
